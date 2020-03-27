@@ -1,6 +1,6 @@
 import React from 'react';
 import Table from './Table';
-import FilterCheckboxes from './FilterCheckboxes';
+import FilterBar from './FilterBar';
 
 export default class FishContainer extends React.Component {
   constructor(props) {
@@ -14,6 +14,10 @@ export default class FishContainer extends React.Component {
         waterfall: true,
         mouth: true
       },
+      timePeriod: {
+        day: true,
+        night: true
+      },
       showFish: true,
       showFishFilter: false,
     }
@@ -22,26 +26,23 @@ export default class FishContainer extends React.Component {
   updateCheckBoxes = (e) => {
     let stateObj = {...this.state};
 
-    if(this.state.fishLoc[e.target.id]) {
-      stateObj.fishLoc[e.target.id] = false;
+    if(this.state[e.target.name][e.target.id]) {
+      stateObj[e.target.name][e.target.id] = false;
       this.setState(stateObj);
     } else {
-      stateObj.fishLoc[e.target.id] = true;
+      stateObj[e.target.name][e.target.id] = true;
       this.setState(stateObj);
     }
   }
 
-  clearChecks = () => {
-    this.setState({
-      fishLoc: {
-        ocean: false,
-        river: false,
-        pier: false,
-        pond: false,
-        waterfall: false,
-        mouth: false
-      }
-    })
+  clearChecks = (e) => {
+    let stateObj = {...this.state};
+
+    Object.keys(stateObj[e.target.id]).map(key => {
+      stateObj[e.target.id][key] = false;
+    });
+
+    this.setState({stateObj});
   }
   
   toggleVisibility = (e) => {
@@ -60,7 +61,7 @@ export default class FishContainer extends React.Component {
 
   render() {
     const {month} = this.props;
-    const {fishLoc, showFish, showFishFilter} = this.state;
+    const {fishLoc, timePeriod, showFish, showFishFilter} = this.state;
 
     return (
         <div>
@@ -71,9 +72,11 @@ export default class FishContainer extends React.Component {
                 {showFishFilter ? <span>&#9650; </span> : <span>&#9660; </span>}
                 Filters
               </h4>
-              <FilterCheckboxes id={'checkDiv'} hidden={!showFishFilter} loc={fishLoc} type={'fishLoc'} updateCheckBoxes={this.updateCheckBoxes} clearChecks={this.clearChecks}/>
+
+              <FilterBar id={'checkDiv'} hidden={!showFishFilter} section={[fishLoc, timePeriod]}  type={['fishLoc', 'timePeriod']} updateCheckBoxes={this.updateCheckBoxes} clearChecks={this.clearChecks}/>
+
             </div>
-            <Table month={month} loc={fishLoc} type={'fish'}/>
+            <Table month={month} section={[fishLoc, timePeriod]} type={'fish'}/>
           </div>
         </div>
     )

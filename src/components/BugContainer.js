@@ -1,6 +1,6 @@
 import React from 'react';
 import Table from './Table';
-import FilterCheckboxes from './FilterCheckboxes';
+import FilterBar from './FilterBar';
 
 export default class BugContainer extends React.Component {
   constructor(props) {
@@ -18,6 +18,10 @@ export default class BugContainer extends React.Component {
         beach: true,
         villager: true
       },
+      timePeriod: {
+        day: true,
+        night: true
+      },
       showBugs: false,
       showBugFilter: false
     }
@@ -26,30 +30,23 @@ export default class BugContainer extends React.Component {
   updateCheckBoxes = (e) => {
     let stateObj = {...this.state};
 
-    if(this.state.bugLoc[e.target.id]) {
-      stateObj.bugLoc[e.target.id] = false;
+    if(this.state[e.target.name][e.target.id]) {
+      stateObj[e.target.name][e.target.id] = false;
       this.setState(stateObj);
     } else {
-      stateObj.bugLoc[e.target.id] = true;
+      stateObj[e.target.name][e.target.id] = true;
       this.setState(stateObj);
     }
   }
 
   clearChecks = (e) => {
-    this.setState({
-        bugLoc: {
-          flying: false,
-          tree: false,
-          ground: false,
-          flower: false,
-          stump: false,
-          food: false,
-          trash: false,
-          rock: false,
-          beach: false,
-          villager: false
-        }
-      })
+    let stateObj = {...this.state};
+
+    Object.keys(stateObj[e.target.id]).map(key => {
+      stateObj[e.target.id][key] = false;
+    });
+
+    this.setState({stateObj});
   }
 
   toggleVisibility = (e) => {
@@ -68,7 +65,7 @@ export default class BugContainer extends React.Component {
     
   render() {
     const {month} = this.props;
-    const {bugLoc, showBugs, showBugFilter} = this.state;
+    const {bugLoc, timePeriod, showBugs, showBugFilter} = this.state;
     return (
         <div>
             <h3 id='showBugs' className={this.toggleHeaderClass('showBugs')} onClick={(e) => this.toggleVisibility(e)}>Bugs</h3>
@@ -78,9 +75,9 @@ export default class BugContainer extends React.Component {
                         {showBugFilter ? <span>&#9650; </span> : <span>&#9660; </span>}
                         Filters
                     </h4>
-                    <FilterCheckboxes id={'bugCheckDiv'} hidden={!showBugFilter} loc={bugLoc} type={'bugLoc'} updateCheckBoxes={this.updateCheckBoxes} clearChecks={this.clearChecks}/>
+                    <FilterBar id={'bugCheckDiv'} hidden={!showBugFilter} section={[bugLoc, timePeriod]} type={['bugLoc', 'timePeriod']} updateCheckBoxes={this.updateCheckBoxes} clearChecks={this.clearChecks}/>
                   </div>
-                  <Table month={month} loc={bugLoc} type={'bug'}/>
+                  <Table month={month} section={[bugLoc, timePeriod]} type={'bug'}/>
               </div>
         </div>
     )

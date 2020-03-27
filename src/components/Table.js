@@ -72,8 +72,22 @@ export default class FishChecks extends React.Component {
         return <span>{timeString}</span>
     }
 
+    timeGroup = (time) => {
+        if(time[0] === 0 && time[1] === 23) {
+            return true;
+        }
+        if(time[0] < 13 && this.props.section[1].day) {
+            return true;
+        } 
+        if(time[0] >= 13 && this.props.section[1].night) {
+            return true;
+        } 
+
+        return false;
+    }
+
     render() {
-        const {month, loc} = this.props;
+        const {month, section} = this.props;
         const data = this.props.type === 'fish'? [...fish] : [...bugs];
 
         const isMobile = this.state.width <= 700;
@@ -92,14 +106,14 @@ export default class FishChecks extends React.Component {
                     
                     <tbody className='mobile'>
                         {data.map(item => {
-                        if(item.months[month] === 1 && loc[(item.location.toLowerCase())] === true) {
+                        if(item.months[month] === 1 && section[0][(item.location.toLowerCase())] === true && this.timeGroup(item.time)) {
                             return (
-                            <tr key={item.name} className={item.location.toLowerCase()}>
-                                <td>{item.name}</td>
-                                <td className='centerRow'>{item.location}</td>
-                                {this.props.type === 'fish'? <td className='centerRow'>{item.size}</td> : null}
-                                <td className='centerRow'>{this.displayTime(item.time)}</td>
-                            </tr>
+                                <tr key={item.name} className={item.location.toLowerCase()}>
+                                    <td>{item.name}</td>
+                                    <td className='centerRow'>{item.location}</td>
+                                    {this.props.type === 'fish'? <td className='centerRow'>{item.size}</td> : null}
+                                    <td className='centerRow'>{this.displayTime(item.time)}</td>
+                                </tr>
                             )
                         }
                         return null;
@@ -125,7 +139,7 @@ export default class FishChecks extends React.Component {
                 
                 <tbody  className='destop'>
                     {data.map(item => {
-                    if(item.months[month] === 1 && loc[(item.location.toLowerCase())] === true) {
+                    if(item.months[month] === 1 && section[0][(item.location.toLowerCase())] === true && this.timeGroup(item.time)) {
                         return (
                         <tr key={item.name} className={item.location.toLowerCase()}>
                             <td>{item.name}</td>
