@@ -1,0 +1,151 @@
+.container {
+  margin: 20px;
+}
+
+.monthHeader {
+  background-color: rgb(0, 63, 63);
+  border-radius: 15px 15px 0px 0px;
+}
+
+.infoContainer {
+  box-sizing: content-box;
+  padding: 20px;
+  background-color: rgb(241, 241, 172);
+  border-radius:  0px 0px 15px 15px;
+}
+
+select {
+  border: none;
+  padding: 10px 25px;
+  font-size: larger;
+  color: white;
+  background-color: rgb(0, 63, 63);
+  border-radius: 15px 15px 0px 0px;
+}
+
+select option {
+  background-color: white;
+  color: rgb(43, 43, 43);
+  font-size: smaller;
+}
+
+.typeDiv {
+  overflow: hidden;
+  background-color: rgb(253, 247, 236);
+  border-radius: 0px 0px 15px 15px;
+  box-sizing: border-box;
+}
+
+h3 {
+  margin: 0;
+  padding: 15px;
+  background-color: rgb(91, 212, 212);
+  overflow: hidden;
+  color: rgb(43, 43, 43);
+}
+
+#showBugs {
+  margin-top: 10px;
+  background-color: rgb(250, 111, 86);
+}
+
+.visibleContainer {
+  border-radius: 15px 15px 0px 0px;
+}
+
+.hiddenContainer {
+  border-radius: 15px;
+}
+
+h4 {
+  margin: 0;
+  color: rgb(43, 43, 43);
+  padding-bottom: 5px;
+}
+
+#showFishFilter{
+  background-color: rgb(138, 240, 240);
+  padding: 5px 15px;
+}
+
+#showBugFilter{
+  background-color: rgb(255, 165, 113);
+  padding: 5px 15px;
+}
+
+.checkDiv {
+  padding: 10px 15px;
+  background-color: rgb(176, 240, 240);
+  color: rgb(43, 43, 43);
+  border-radius: 0px 0px 15px 15px;
+}
+
+.bugCheckDiv {
+  background-color: rgb(253, 208, 148);
+  padding: 10px 15px;
+  color: rgb(43, 43, 43);
+  border-radius: 0px 0px 15px 15px;
+}
+
+button {
+  margin: 0px 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(194, 253, 253);
+}
+
+button:hover {
+  background-color: rgb(123, 207, 207);
+}
+
+.bugCheckDiv button {
+  background-color: rgb(253, 239, 194);
+}
+
+.bugCheckDiv button:hover {
+  background-color: rgb(230, 159, 93);
+}
+
+table {
+  width: 98%;
+  margin: 10px;
+}
+
+thead {
+  font-weight: bold;
+}
+
+.centerRow {
+  text-align: center;
+}
+
+.river {
+  background-color: rgb(163, 232, 236);
+}
+
+.ocean {
+  background-color: rgb(163, 236, 232);
+}
+
+.pier {
+  background-color: rgb(163, 213, 236);
+}
+
+.waterfall {
+  background-color: rgb(163, 203, 236);
+}
+
+.pond {
+  background-color: rgb(163, 236, 212);
+}
+
+.mouth {
+  background-color: rgb(168, 163, 236);
+}
+
+td { 
+  border-radius: 15px; 
+  padding: 5px 10px;
+  margin: 5px 0px;
+}
