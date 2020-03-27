@@ -662,5 +662,124 @@ export const bugs = [
         value: 240,
         time: [4,19],
         months: [0,0,1,1,1,1,1,1,1,1,0,0]
+    },
+    {
+        name: "Peacock Butterfly",
+        location: "Flying",
+        value: 2500,
+        time: [4,19],
+        months: [0,0,1,1,1,1,0,0,0,0,0,0]
+    },
+    {
+        name: "Common Bluebottle",
+        location: "Flying",
+        value: 300,
+        time: [4,19],
+        months: [0,0,0,1,1,1,1,1,0,0,0,0]
+    },
+    {
+        name: "Paper Kite Butterfly",
+        location: "Flying",
+        value: 1000,
+        time: [8,19],
+        months: [1,1,1,1,1,1,1,1,1,1,1,1]
+    },
+    {
+        name: "Great Purple Emperor",
+        location: "Flying",
+        value: 3000,
+        time: [4,19],
+        months: [0,0,0,0,1,1,1,1,0,0,0,0]
+    },
+    {
+        name: "Monach Butterfly",
+        location: "Flying",
+        value: 140,
+        time: [4,17],
+        months: [0,0,0,0,0,0,0,0,1,1,1,0]
+    },
+    {
+        name: "Emperor Butterfly",
+        location: "Flying",
+        value: 4000,
+        time: [17,8],
+        months: [0,0,0,0,0,1,1,1,1,0,0,0]
+    },
+    {
+        name: "Agrias Butterfly",
+        location: "Flying",
+        value: 3000,
+        time: [8,17],
+        months: [0,0,0,1,1,1,1,1,1,0,0,0]
+    },
+    {
+        name: "Raja Brooke's Birdwing",
+        location: "Flying",
+        value: 2500,
+        time: [8,17],
+        months: [1,1,0,1,1,1,1,1,1,0,0,1]
+    },
+    {
+        name: "Queen Alexandra's Birdwing",
+        location: "Flying",
+        value: 4000,
+        time: [8,16],
+        months: [0,0,0,0,1,1,1,1,1,0,0,0]
+    },
+    {
+        name: "Moth",
+        location: "Flying",
+        value: 130,
+        time: [19,4],
+        months: [1,1,1,1,1,1,1,1,1,1,1,1]
+    },
+    {
+        name: "Atlas Moth",
+        location: "Tree",
+        value: 3000,
+        time: [19,4],
+        months: [0,0,0,1,1,1,1,1,1,0,0,0]
+    },
+    {
+        name: "Madagascan Sunset Moth",
+        location: "Flying",
+        value: 2500,
+        time: [8,16],
+        months: [0,0,0,1,1,1,1,1,1,0,0,0]
+    },
+    {
+        name: "Long Locust",
+        location: "Ground",
+        value: 200,
+        time: [8,19],
+        months: [0,0,0,1,1,1,1,1,1,1,1,0]
+    },
+    {
+        name: "Migratory Locust",
+        location: "Ground",
+        value: 600,
+        time: [8,19],
+        months: [0,0,0,1,1,1,1,1,1,1,1,0]
+    },
+    {
+        name: "Rice Grasshopper",
+        location: "Ground",
+        value: 160,
+        time: [8,19],
+        months: [0,0,0,1,1,1,1,1,1,1,1,0]
+    },
+    {
+        name: "Grasshopper",
+        location: "Ground",
+        value: 160,
+        time: [8,17],
+        months: [0,0,0,0,0,0,1,1,1,0,0,0]
+    },
+    {
+        name: "Cricket",
+        location: "Ground",
+        value: 130,
+        time: [17,8],
+        months: [0,0,0,0,0,0,0,0,1,1,1,0]
     }
 ]

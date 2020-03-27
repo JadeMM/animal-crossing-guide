@@ -1,11 +1,27 @@
 import React from 'react';
 import { fish, bugs } from '../data';
 
-export default function FishChecks(props) {
-    const {month, loc} = props;
-    const data = props.type === 'fish'? [...fish] : [...bugs];
+export default class FishChecks extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            width: window.innerWidth
+        }
+    }
 
-    const displayTime = (time) => {
+    componentDidMount = () => {
+        window.addEventListener('resize', this.handleWindowSizeChange);
+    }
+
+    componentWillUnmount = () => {
+        window.removeEventListener('resize', this.handleWindowSizeChange);
+    }
+
+    handleWindowSizeChange = () => {
+        this.setState({width: window.innerWidth});
+    }
+
+    displayTime = (time) => {
         if(time[0] === 0 && time[1] === 23) {
             return <span>All day</span>
         }
@@ -56,36 +72,75 @@ export default function FishChecks(props) {
         return <span>{timeString}</span>
     }
 
-    return (
-        <div className='listDiv'>
-            <table>
-            <thead>
-                <tr>
-                    <td>Name</td>
-                    <td className='centerRow'>Location</td>
-                    {props.type === 'fish'? <td className='centerRow'>Size</td> : null}
-                    <td className='centerRow'>Value</td>
-                    <td className='centerRow'>Time</td>
-                </tr>
-            </thead>
-            
-            <tbody>
-                {data.map(item => {
-                if(item.months[month] === 1 && loc[(item.location.toLowerCase())] === true) {
-                    return (
-                    <tr key={item.name} className={item.location.toLowerCase()}>
-                        <td>{item.name}</td>
-                        <td className='centerRow'>{item.location}</td>
-                        {props.type === 'fish'? <td className='centerRow'>{item.size}</td> : null}
-                        <td className='centerRow'>{item.value}</td>
-                        <td className='centerRow'>{displayTime(item.time)}</td>
+    render() {
+        const {month, loc} = this.props;
+        const data = this.props.type === 'fish'? [...fish] : [...bugs];
+
+        const isMobile = this.state.width <= 700;
+        if (isMobile) {
+            return (
+                <div className='listDiv'>
+                    <table>
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td className='centerRow'>Location</td>
+                            {this.props.type === 'fish'? <td className='centerRow'>Size</td> : null}
+                            <td className='centerRow'>Time</td>
+                        </tr>
+                    </thead>
+                    
+                    <tbody className='mobile'>
+                        {data.map(item => {
+                        if(item.months[month] === 1 && loc[(item.location.toLowerCase())] === true) {
+                            return (
+                            <tr key={item.name} className={item.location.toLowerCase()}>
+                                <td>{item.name}</td>
+                                <td className='centerRow'>{item.location}</td>
+                                {this.props.type === 'fish'? <td className='centerRow'>{item.size}</td> : null}
+                                <td className='centerRow'>{this.displayTime(item.time)}</td>
+                            </tr>
+                            )
+                        }
+                        return null;
+                        })}
+                    </tbody>
+                    </table>
+                </div>
+            )
+        }
+        
+        return (
+            <div className='listDiv'>
+                <table>
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td className='centerRow'>Location</td>
+                        {this.props.type === 'fish'? <td className='centerRow'>Size</td> : null}
+                        <td className='centerRow'>Value</td>
+                        <td className='centerRow'>Time</td>
                     </tr>
-                    )
-                }
-                return null;
-                })}
-            </tbody>
-            </table>
-        </div>
-    )
+                </thead>
+                
+                <tbody  className='destop'>
+                    {data.map(item => {
+                    if(item.months[month] === 1 && loc[(item.location.toLowerCase())] === true) {
+                        return (
+                        <tr key={item.name} className={item.location.toLowerCase()}>
+                            <td>{item.name}</td>
+                            <td className='centerRow'>{item.location}</td>
+                            {this.props.type === 'fish'? <td className='centerRow'>{item.size}</td> : null}
+                            <td className='centerRow'>{item.value}</td>
+                            <td className='centerRow'>{this.displayTime(item.time)}</td>
+                        </tr>
+                        )
+                    }
+                    return null;
+                    })}
+                </tbody>
+                </table>
+            </div>
+        )
+    }
 }
