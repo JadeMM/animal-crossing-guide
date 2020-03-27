@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/animal-crossing-guide/static/css/main.54a92b23.chunk.css",
-    "main.js": "/animal-crossing-guide/static/js/main.8734796f.chunk.js",
-    "main.js.map": "/animal-crossing-guide/static/js/main.8734796f.chunk.js.map",
+    "main.js": "/animal-crossing-guide/static/js/main.c2b70c26.chunk.js",
+    "main.js.map": "/animal-crossing-guide/static/js/main.c2b70c26.chunk.js.map",
     "runtime-main.js": "/animal-crossing-guide/static/js/runtime-main.72c94438.js",
     "runtime-main.js.map": "/animal-crossing-guide/static/js/runtime-main.72c94438.js.map",
     "static/js/2.4ceba55b.chunk.js": "/animal-crossing-guide/static/js/2.4ceba55b.chunk.js",
     "static/js/2.4ceba55b.chunk.js.map": "/animal-crossing-guide/static/js/2.4ceba55b.chunk.js.map",
     "index.html": "/animal-crossing-guide/index.html",
-    "precache-manifest.ee96a533e979afc14bc579d8b641229f.js": "/animal-crossing-guide/precache-manifest.ee96a533e979afc14bc579d8b641229f.js",
+    "precache-manifest.e1d5596d5acfb06ef156c7e2aed93a70.js": "/animal-crossing-guide/precache-manifest.e1d5596d5acfb06ef156c7e2aed93a70.js",
     "service-worker.js": "/animal-crossing-guide/service-worker.js",
     "static/css/main.54a92b23.chunk.css.map": "/animal-crossing-guide/static/css/main.54a92b23.chunk.css.map",
     "static/js/2.4ceba55b.chunk.js.LICENSE.txt": "/animal-crossing-guide/static/js/2.4ceba55b.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.72c94438.js",
     "static/js/2.4ceba55b.chunk.js",
     "static/css/main.54a92b23.chunk.css",
-    "static/js/main.8734796f.chunk.js"
+    "static/js/main.c2b70c26.chunk.js"
   ]
 }
